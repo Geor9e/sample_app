@@ -1,10 +1,11 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateMicroposts < ActiveRecord::Migration
   def change
-    create_table :users do |t|
-      t.string :name
-      t.string :email
+    create_table :microposts do |t|
+      t.string :content
+      t.integer :user_id
 
       t.timestamps
     end
+    add_index :microposts, [:user_id, :created_at]
   end
 end
